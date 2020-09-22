@@ -1,6 +1,6 @@
 # Model Rocket Computer
 Just an Arduino that records rocket's telemetry with apogee detection for parachute deployment (pyro charges)
-I will be adding code, schematics and photos
+I will be adding code, schematics, photos and will fix some code that was commented out
 
-(This is a project I did last year (2019) that I'm reuploading to github)
-Hope to make a TVC system soon
+Nevertheless, this code is Flight-Ready!
+in the meantime I hope to make a TVC system.
