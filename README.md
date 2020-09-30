@@ -3,4 +3,3 @@ Just an Arduino that records rocket's telemetry with apogee detection for parach
 I will be adding code, schematics, photos and will fix some code that was commented out
 
 Nevertheless, this code is Flight-Ready!
-in the meantime I hope to make a TVC system.
