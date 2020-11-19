@@ -4,6 +4,6 @@ I will be adding code, schematics, photos and will fix some code that was commen
 
 Nevertheless, this code is Flight-Ready!
 
-Used an Arduino Nano V3
-MPU6050 (IMU)
+Used an Arduino Nano V3,
+MPU6050 (IMU),
 BMP085 (Barometric Sensor)
