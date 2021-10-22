@@ -3,8 +3,7 @@
 #include <Chrono.h>
 /*
 A special thank you to Adam Marciniak!
-part of this library is inspired on his work found at 
-https://github.com/AdamMarciniak/Cygnus-X1-Software/blob/master/src/Pyro.cpp
+part of this Pyro timers usage are inspired on his work found at https://github.com/AdamMarciniak
 Go show him some appreciation!
 */
 
@@ -24,13 +23,15 @@ bool Pyro::fire(int channel)
         //Fire pyro charge
         fireTime = millis();
         hasFired = true;
-        analogWrite(PIN_PYRO_1_EN, 255);
+        digitalWrite(PIN_PYRO_1_EN, HIGH);
+        // analogWrite(PIN_PYRO_1_EN, 255);
     }
 
     if (hasFired == true && millis() - fireTime >= FIRE_ON_TIME)
     {
         //Stop pyro charge
-        analogWrite(PIN_PYRO_1_EN, 0);
+        digitalWrite(PIN_PYRO_1_EN, LOW);
+        // analogWrite(PIN_PYRO_1_EN, 0);
         hasFired = false;
     }
 }

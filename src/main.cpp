@@ -14,6 +14,9 @@
 
 #include <header.h>
 
+unsigned long prevLoopTime;
+unsigned long currentLoopTime;
+
 void setup()
 {
   // put your setup code here, to run once:
@@ -45,6 +48,13 @@ void setup()
 void loop()
 {
   // put your main code here, to run repeatedly:
+  currentLoopTime = micros();
+  data.loopTime = float(currentLoopTime - prevLoopTime) / 1000000.0f;
+  prevLoopTime = currentLoopTime;
+
+  nav.update();
+  altimeter.updateAltimeter();
+
   switch (data.state)
   {
   case IDLE:
@@ -59,7 +69,7 @@ void loop()
 
   case POWERED_ASCENT:
     goToState(MECU);
-    
+
     break;
 
   case MECU:

@@ -2,7 +2,14 @@
 #define DATA_H
 
 #include <Arduino.h>
-#include <vector.h>
+// #include <vector.h>
+#include <config.h>
+#include <global.h>
+
+extern uint16_t rateHz;
+extern uint16_t numSeconds;
+extern uint16_t totalSamples;
+extern uint16_t millisPerSample;
 
 enum State_t
 {

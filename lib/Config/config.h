@@ -33,7 +33,8 @@
 /*************************************
               LOGGER
  *************************************/
-#define TELEMETRY_REFRESH_RATE 20 // Hz
+#define DATA_SAMPLE_RATE 200      // Hz
+#define DATA_SAMPLE_TOTAL_TIME 45 // seconds | time that the logger will work
 
 /*************************************
             PYRO CHANNEL
