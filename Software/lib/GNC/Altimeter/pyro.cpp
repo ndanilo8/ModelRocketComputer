@@ -32,6 +32,7 @@ bool Pyro::fire(int channel)
         //Stop pyro charge
         analogWrite(PIN_PYRO_1_EN, 0);
         firingStatus = false;
+        return true;
     }
 }
 
