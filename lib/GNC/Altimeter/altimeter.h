@@ -7,7 +7,7 @@
 class Altimeter
 {
 public:
-    Altimeter();
+    Altimeter(){};
 
     bool begin();         // return true if OK
     float updateAltimeter(); // update Altimeter Data and it goes on top of the loop()
