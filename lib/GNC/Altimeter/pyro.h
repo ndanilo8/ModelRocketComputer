@@ -15,7 +15,7 @@ public:
 
 private:
     unsigned long fireTime = 0; // millis
-    bool firingStatus = false;
+    bool hasFired = false;
     float analogVal;
 };
 
