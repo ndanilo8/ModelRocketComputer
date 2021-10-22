@@ -38,7 +38,7 @@
 /*************************************
             PYRO CHANNEL
  *************************************/
-#define CONTINUITY_CHECK_TIME 1000// ms Time taken with each check
+#define CONTINUITY_CHECK_TIME 1000 // ms Time taken with each check
 #define FIRE_ON_TIME 1000 // ms
 
 

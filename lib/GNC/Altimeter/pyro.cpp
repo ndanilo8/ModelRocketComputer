@@ -3,7 +3,7 @@
 #include <Chrono.h>
 /*
 A special thank you to Adam Marciniak!
-part of this library is based on his work found at 
+part of this library is inspired on his work found at 
 https://github.com/AdamMarciniak/Cygnus-X1-Software/blob/master/src/Pyro.cpp
 Go show him some appreciation!
 */
@@ -19,19 +19,19 @@ bool Pyro::begin()
 
 bool Pyro::fire(int channel)
 {
-    if (firingStatus == false && fireTime == 0)
+    if (hasFired == false && fireTime == 0)
     {
         //Fire pyro charge
         fireTime = millis();
-        firingStatus = true;
+        hasFired = true;
         analogWrite(PIN_PYRO_1_EN, 255);
     }
 
-    if (firingStatus == true && millis() - fireTime >= FIRE_ON_TIME)
+    if (hasFired == true && millis() - fireTime >= FIRE_ON_TIME)
     {
         //Stop pyro charge
         analogWrite(PIN_PYRO_1_EN, 0);
-        firingStatus = false;
+        hasFired = false;
     }
 }
 

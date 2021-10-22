@@ -24,18 +24,21 @@ void setup()
 #endif
   Wire.begin();
 
-  if (nav.begin())
-  {
-    
-  }
+  bool error = false;
 
-  if (altimeter.begin())
-  {
+  if (!nav.begin())
+    error = true;
 
-  }
-  if (pyro.begin())
-  {
+  if (!pyro.begin())
+    error = true;
 
+  if (!altimeter.begin())
+    error = true;
+
+  while (error == true)
+  {
+    // beep and light red LED
+    ;
   }
 }
 
@@ -56,6 +59,7 @@ void loop()
 
   case POWERED_ASCENT:
     goToState(MECU);
+    
     break;
 
   case MECU:
