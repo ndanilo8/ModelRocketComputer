@@ -7,9 +7,10 @@ Check his github here: https://github.com/bdureau
 
 Chrono timer;
 
-
-bool Telemetry::begin(){
-// TODO start up SDcard
+bool Telemetry::begin()
+{
+    // TODO start up SDcard
+    return true;
 }
 
 /*
@@ -53,9 +54,11 @@ bool Telemetry::send2uart()
         strcat(packet, buffer);
         sprintf(buffer, "%i,", data.imu.eulerAngles.pitch);
 
-//TODO add checksum? https://github.com/bdureau/RocketFlightLogger/blob/140cf36829486526b69e4608e735478b8145a25b/config.cpp#L377
+        //TODO add checksum? https://github.com/bdureau/RocketFlightLogger/blob/140cf36829486526b69e4608e735478b8145a25b/config.cpp#L377
         strcat(packet, ";\n");
         Serial.print("$");
         Serial.print(packet);
+
+        return true;
     }
 }

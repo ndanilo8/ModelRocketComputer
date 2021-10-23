@@ -30,6 +30,9 @@ void setup()
 
   bool error = false;
 
+  if (!telemetry.begin())
+    error = true;
+
   if (!nav.begin())
     error = true;
 
