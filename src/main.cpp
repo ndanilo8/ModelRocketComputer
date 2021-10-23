@@ -55,7 +55,6 @@ void loop()
 
   nav.update();
   altimeter.update();
- 
 
   switch (data.state)
   {
@@ -79,7 +78,7 @@ void loop()
     // calculate total accel of the vehicle = sqrt(x^2 + y^2 + z^2)
     data.imu.accelTotal = sqrt((data.imu.accel.x * data.imu.accel.x) + (data.imu.accel.y * data.imu.accel.y) + (data.imu.accel.z * data.imu.accel.z));
 
-    //TODO add log function here
+    //TODO add log2SD function here
     if (data.imu.accelTotal < ACCEL_UNPOWERED_THRESHOLD)
       goToState(MECU);
 
@@ -104,16 +103,17 @@ void loop()
     break;
 
   case LANDED:
-// BEEP and blink LED
+    // BEEP and blink LED
 
     break;
 
   case ABORT:
-//Fire
+    //Fire
     break;
 
   case TEST:
 #if is_DEBUG
+    telemetry.send2uart();
     // Serial.println("Yaw: ");
     // Serial.print(data.imu.eulerAngles.yaw);
     // Serial.print(", Pitch: ");
@@ -144,6 +144,4 @@ void loop()
 #endif
     break;
   }
-
-   telemetry.send2uart();
 }
