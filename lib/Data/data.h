@@ -6,10 +6,15 @@
 #include <config.h>
 #include <global.h>
 
-extern uint16_t rateHz;
-extern uint16_t numSeconds;
-extern uint16_t totalSamples;
-extern uint16_t millisPerSample;
+/*
+This data library is inspired on Adam Marciniak! (his way of organizing everything in one struct and use it throught the software)
+Go show him some love https://github.com/AdamMarciniak
+*/
+
+// extern uint16_t rateHz;
+// extern uint16_t numSeconds;
+// extern uint16_t totalSamples;
+// extern uint16_t millisPerSample;
 
 enum State_t
 {

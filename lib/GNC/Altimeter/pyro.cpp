@@ -40,7 +40,7 @@ bool Pyro::fire(int channel)
 bool Pyro::checkContinuity(int channel)
 {
 
-    if (continuityTimer.hasPassed(CONTINUITY_CHECK_TIME)) // Check continuity time
+    if (continuityTimer.hasPassed(CONTINUITY_CHECK_TIME_RATE)) // Check continuity time
     {
         if (digitalRead(channel))
         {
