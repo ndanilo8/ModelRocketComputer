@@ -21,7 +21,7 @@
               ALTIMETER
  *************************************/
 #define FILTER_UPDATE_RATE 250 // Hz 
-// TODO EXAMPLE VALUE
+// TODO change update value ^
 
 /*************************************
               ALTIMETER

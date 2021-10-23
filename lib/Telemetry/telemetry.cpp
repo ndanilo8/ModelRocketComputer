@@ -7,11 +7,17 @@ Check his github here: https://github.com/bdureau
 
 Chrono timer;
 
+
+bool Telemetry::begin(){
+// TODO start up SDcard
+}
+
 /*
 Send Telemetry to SD Card
 
  */
-bool Telemetry::sendTelemetry()
+//TODO test
+bool Telemetry::send2uart()
 {
     if (timer.hasPassed(DATA_SAMPLE_RATE))
     {

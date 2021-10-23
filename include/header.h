@@ -18,10 +18,13 @@
 #include <Altimeter/altimeter.h>
 #include <Altimeter/pyro.h>
 
+#include <telemetry.h>
+
+
 Nav nav;
 Altimeter altimeter;
 Pyro pyro;
-
+Telemetry telemetry;
 
 
 #endif /* HEADER_H */

@@ -55,6 +55,7 @@ void loop()
 
   nav.update();
   altimeter.update();
+ 
 
   switch (data.state)
   {
@@ -113,34 +114,36 @@ void loop()
 
   case TEST:
 #if is_DEBUG
-    Serial.println("Yaw: ");
-    Serial.print(data.imu.eulerAngles.yaw);
-    Serial.print(", Pitch: ");
-    Serial.print(data.imu.eulerAngles.pitch);
-    Serial.print(", Roll: ");
-    Serial.print(data.imu.eulerAngles.roll);
+    // Serial.println("Yaw: ");
+    // Serial.print(data.imu.eulerAngles.yaw);
+    // Serial.print(", Pitch: ");
+    // Serial.print(data.imu.eulerAngles.pitch);
+    // Serial.print(", Roll: ");
+    // Serial.print(data.imu.eulerAngles.roll);
 
-    Serial.println("Accel x: ");
-    Serial.print(data.imu.accel.x);
-    Serial.print(", y: ");
-    Serial.print(data.imu.accel.y);
-    Serial.print(", z: ");
-    Serial.print(data.imu.accel.z);
+    // Serial.println("Accel x: ");
+    // Serial.print(data.imu.accel.x);
+    // Serial.print(", y: ");
+    // Serial.print(data.imu.accel.y);
+    // Serial.print(", z: ");
+    // Serial.print(data.imu.accel.z);
 
-    Serial.println("Gyro x: ");
-    Serial.print(data.imu.gyro.x);
-    Serial.print(", y: ");
-    Serial.print(data.imu.gyro.y);
-    Serial.print(", z:");
-    Serial.print(data.imu.gyro.z);
+    // Serial.println("Gyro x: ");
+    // Serial.print(data.imu.gyro.x);
+    // Serial.print(", y: ");
+    // Serial.print(data.imu.gyro.y);
+    // Serial.print(", z:");
+    // Serial.print(data.imu.gyro.z);
 
-    Serial.println("Altitude: ");
-    Serial.print(data.altimeter.altitude);
-    Serial.print(" , Temperature: ");
-    Serial.print(data.altimeter.temperature);
-    Serial.print(" , verticalSpeed: ");
-    Serial.print(data.altimeter.verticalVelocity);
+    // Serial.println("Altitude: ");
+    // Serial.print(data.altimeter.altitude);
+    // Serial.print(" , Temperature: ");
+    // Serial.print(data.altimeter.temperature);
+    // Serial.print(" , verticalSpeed: ");
+    // Serial.print(data.altimeter.verticalVelocity);
 #endif
     break;
   }
+
+   telemetry.send2uart();
 }

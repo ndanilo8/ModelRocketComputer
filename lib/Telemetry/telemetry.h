@@ -9,11 +9,11 @@
 // this library has all the code to manage the telemetry logging and radio downlink
 class Telemetry
 {
-    
+public:
     Telemetry(){};
 
     bool begin();
-    bool sendTelemetry();
+    bool send2uart();
     // bool sendData2Radio();
     // bool logData2SsdCard();
 };
