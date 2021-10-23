@@ -13,9 +13,6 @@
 */
 
 #include <header.h>
-#include <Chrono.h>
-
-Chrono liftoffTimer;
 
 unsigned long prevLoopTime;
 unsigned long currentLoopTime;
