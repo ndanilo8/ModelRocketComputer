@@ -8,9 +8,6 @@ Adafruit_BMP3XX bmp;
 
 bool Altimeter::begin()
 {
-
-
-
     // Start sensor on I2C
     if (bmp.begin_I2C())
     {
@@ -57,7 +54,7 @@ bool Altimeter::begin()
         previous_altitude = 0; //make sure this is 0
 
 #if is_DEBUG
-    Serial.println("LAUNCH ALTITUDE: " + String(data.altitude) + " TEMP: " + String(data.temperature);
+    Serial.println("LAUNCH ALTITUDE: " + String(data.altimeter.altitude) + " TEMP: " + String(data.altimeter.temperature));
 #endif
 
 #if is_DEBUG

@@ -13,16 +13,15 @@ extern uint16_t millisPerSample;
 
 enum State_t
 {
-    IDLE = 1,    // LAUNCHPAD
-    LIFTOFF = 2, // ARMED waiting liftoff
-    POWERED_ASCENT = 3,
-    MECU = 4, // MECU
-    APOGGE = 5,
-    PARACHUTE_DESCENT = 6,
-    LANDED = 7,
-    ABORT = 8,
-    CALIBRATION = 9, // Bias gathering
-    TEST = 10,       // run specific code (debug mode rigth?)
+    IDLE = 0,    // LAUNCHPAD
+    LIFTOFF = 1, // ARMED waiting liftoff
+    POWERED_ASCENT = 2,
+    MECU = 3, // MECU
+    APOGGE = 4,
+    PARACHUTE_DESCENT = 5,
+    LANDED = 6,
+    ABORT = 7,
+    TEST = 8,       // run specific code (debug mode rigth?)
 };
 
 struct axis_t

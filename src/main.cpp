@@ -69,8 +69,11 @@ void loop()
   case LIFTOFF:
 
     // TODO add a timer so it looks for a constant accel over some short time (prevent false starts due to spikes induced by moving the rocket)
-    if (data.imu.accel.x >= LAUNCH_ACCEL_THRESHOLD)
+    if (data.imu.accel.x >= LAUNCH_ACCEL_THRESHOLD || data.altimeter.altitude >= LIFTOFF_ALTITUDE)
+    {
+      // if (micros() - currentLoopTime >=  )
       goToState(POWERED_ASCENT);
+    }
 
     break;
 
@@ -85,29 +88,29 @@ void loop()
     break;
 
   case MECU:
-    goToState(APOGGE);
+    if (altimeter.detectApogge())
+      goToState(APOGGE);
 
     break;
 
   case APOGGE:
-    goToState(PARACHUTE_DESCENT);
+    if (pyro.fire(PIN_PYRO_1_EN))
+      goToState(PARACHUTE_DESCENT);
 
     break;
 
   case PARACHUTE_DESCENT:
-    goToState(LANDED);
+    if (data.altimeter.altitude <= LIFTOFF_ALTITUDE)
+      goToState(LANDED);
 
     break;
 
   case LANDED:
 
+
     break;
 
   case ABORT:
-
-    break;
-
-  case CALIBRATION:
 
     break;
 
