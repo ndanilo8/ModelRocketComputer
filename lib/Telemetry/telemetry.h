@@ -13,7 +13,7 @@ class Telemetry
     Telemetry(){};
 
     bool begin();
-    bool sendTelemetry(long sampleTime, int freq);
+    bool sendTelemetry();
     // bool sendData2Radio();
     // bool logData2SsdCard();
 };

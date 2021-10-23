@@ -34,7 +34,7 @@
 /*************************************
               LOGGER
  *************************************/
-#define DATA_SAMPLE_RATE 200      // Hz
+#define DATA_SAMPLE_RATE 30      // ms
 #define DATA_SAMPLE_TOTAL_TIME 45 // seconds | time that the logger will work
 
 /*************************************

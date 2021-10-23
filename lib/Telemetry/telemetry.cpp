@@ -2,7 +2,7 @@
 
 Chrono telemetryimer;
 
-bool Telemetry::sendTelemetry(long sampleTime, int freq){
+bool Telemetry::sendTelemetry(){
     // TODO find the correct size
     char packet[150];
     char buffer[10];
