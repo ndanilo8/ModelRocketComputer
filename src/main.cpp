@@ -24,6 +24,10 @@ void setup()
   // initialize debuging
 #if is_DEBUG
   Serial.begin(SERIAL_BAUD);
+  while (!Serial)
+  {
+    ; // pause till we open our serial monitor
+  }
   goToState(TEST);
 #endif
   Wire.begin();
