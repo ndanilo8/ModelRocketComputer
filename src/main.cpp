@@ -28,21 +28,21 @@ void setup()
 #endif
   Wire.begin();
 
-  bool error = false;
+  bool startupError = false;
 
   if (!telemetry.begin())
-    error = true;
+    startupError = true;
 
   if (!nav.begin())
-    error = true;
+    startupError = true;
 
   if (!pyro.begin())
-    error = true;
+    startupError = true;
 
   if (!altimeter.begin())
-    error = true;
+    startupError = true;
 
-  while (error == true)
+  while (startupError == true)
   {
     // beep and light red LED
     ;
