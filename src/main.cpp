@@ -106,12 +106,12 @@ void loop()
     break;
 
   case LANDED:
-
+// BEEP and blink LED
 
     break;
 
   case ABORT:
-
+//Fire
     break;
 
   case TEST:
