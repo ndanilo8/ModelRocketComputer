@@ -4,6 +4,7 @@
 #include <data.h>
 #include <config.h>
 #include <global.h>
+#include <Chrono.h>
 
 // this library has all the code to manage the telemetry logging and radio downlink
 class Telemetry
@@ -12,8 +13,8 @@ class Telemetry
     Telemetry(){};
 
     bool begin();
-    bool formatData();
-    bool sendData2Radio();
-    bool logData2SsdCard();
+    bool sendTelemetry(long sampleTime, int freq);
+    // bool sendData2Radio();
+    // bool logData2SsdCard();
 };
 #endif /* TELEMETRY_H */
