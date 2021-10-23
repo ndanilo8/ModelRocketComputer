@@ -71,7 +71,7 @@ bool Altimeter::begin()
     }
 }
 
-float Altimeter::updateAltimeter()
+float Altimeter::update()
 {    
   if (bmp.performReading())
   {

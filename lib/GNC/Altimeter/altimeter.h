@@ -10,7 +10,7 @@ public:
     Altimeter(){};
 
     bool begin();         // return true if OK
-    float updateAltimeter(); // update Altimeter Data and it goes on top of the loop()
+    float update(); // update Altimeter Data and it goes on top of the loop()
     bool detectApogge();     // detect apogge
     
 private:

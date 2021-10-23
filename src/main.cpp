@@ -54,7 +54,7 @@ void loop()
   prevLoopTime = currentLoopTime;
 
   nav.update();
-  altimeter.updateAltimeter();
+  altimeter.update();
 
   switch (data.state)
   {
