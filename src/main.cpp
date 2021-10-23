@@ -69,15 +69,15 @@ void loop()
     // TODO add a timer so it looks for a constant accel over some short time (prevent false starts due to spikes induced by moving the rocket)
     if (data.imu.accel.x >= LAUNCH_ACCEL_THRESHOLD || data.altimeter.altitude >= LIFTOFF_ALTITUDE)
     {
-      // if (micros() - currentLoopTime >=  )
+      // if (micros() - currentLoopTime >=  ) // the timer...
       goToState(POWERED_ASCENT);
     }
 
     break;
 
   case POWERED_ASCENT:
-    // calculate total accel of the vehicle atotal = sqrt(x^2 + y^2 + z^2)
-    data.imu.accelTotal = sqrt((data.imu.accel.x * data.imu.accel.x) + data.imu.accel.y * data.imu.accel.y + (data.imu.accel.z * data.imu.accel.z));
+    // calculate total accel of the vehicle = sqrt(x^2 + y^2 + z^2)
+    data.imu.accelTotal = sqrt((data.imu.accel.x * data.imu.accel.x) + (data.imu.accel.y * data.imu.accel.y) + (data.imu.accel.z * data.imu.accel.z));
 
     //TODO add log function here
     if (data.imu.accelTotal < ACCEL_UNPOWERED_THRESHOLD)
