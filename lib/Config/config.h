@@ -5,7 +5,7 @@
 /*************************************
             USB DEBUGGING
  *************************************/
-#define is_DEBUG false
+#define is_DEBUG true
 #define SERIAL_BAUD 115200 // 115200 max?
 
 /*************************************

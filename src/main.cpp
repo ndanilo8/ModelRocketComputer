@@ -13,6 +13,9 @@
 */
 
 #include <header.h>
+#include <Chrono.h>
+
+Chrono liftoffTimer;
 
 unsigned long prevLoopTime;
 unsigned long currentLoopTime;
@@ -24,6 +27,7 @@ void setup()
   // initialize debuging
 #if is_DEBUG
   Serial.begin(SERIAL_BAUD);
+  goToState(TEST);
 #endif
   Wire.begin();
 
@@ -63,12 +67,20 @@ void loop()
     break;
 
   case LIFTOFF:
-    goToState(POWERED_ASCENT);
+
+    // TODO add a timer so it looks for a constant accel over some short time (prevent false starts due to spikes induced by moving the rocket)
+    if (data.imu.accel.x >= LAUNCH_ACCEL_THRESHOLD)
+      goToState(POWERED_ASCENT);
 
     break;
 
   case POWERED_ASCENT:
-    goToState(MECU);
+    // calculate total accel of the vehicle atotal = sqrt(x^2 + y^2 + z^2)
+    data.imu.accelTotal = sqrt((data.imu.accel.x * data.imu.accel.x) + data.imu.accel.y * data.imu.accel.y + (data.imu.accel.z * data.imu.accel.z));
+
+    //TODO add log function here
+    if (data.imu.accelTotal < ACCEL_UNPOWERED_THRESHOLD)
+      goToState(MECU);
 
     break;
 
@@ -100,7 +112,35 @@ void loop()
     break;
 
   case TEST:
+#if is_DEBUG
+    Serial.println("Yaw: ");
+    Serial.print(data.imu.eulerAngles.yaw);
+    Serial.print(", Pitch: ");
+    Serial.print(data.imu.eulerAngles.pitch);
+    Serial.print(", Roll: ");
+    Serial.print(data.imu.eulerAngles.roll);
 
+    Serial.println("Accel x: ");
+    Serial.print(data.imu.accel.x);
+    Serial.print(", y: ");
+    Serial.print(data.imu.accel.y);
+    Serial.print(", z: ");
+    Serial.print(data.imu.accel.z);
+
+    Serial.println("Gyro x: ");
+    Serial.print(data.imu.gyro.x);
+    Serial.print(", y: ");
+    Serial.print(data.imu.gyro.y);
+    Serial.print(", z:");
+    Serial.print(data.imu.gyro.z);
+
+    Serial.println("Altitude: ");
+    Serial.print(data.altimeter.altitude);
+    Serial.print(" , Temperature: ");
+    Serial.print(data.altimeter.temperature);
+    Serial.print(" , verticalSpeed: ");
+    Serial.print(data.altimeter.verticalVelocity);
+#endif
     break;
   }
 }

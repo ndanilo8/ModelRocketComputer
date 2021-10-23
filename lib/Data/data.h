@@ -42,6 +42,7 @@ struct euler_t
 struct imu_t
 {
     axis_t accel;
+    float accelTotal;
     axis_t gyro;
     euler_t eulerAngles;
 };
