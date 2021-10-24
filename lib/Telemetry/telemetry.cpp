@@ -22,7 +22,7 @@ bool Telemetry::send2uart()
 {
     if (timer.hasPassed(DATA_SAMPLE_RATE))
     {
-        // TODO find the correct size
+        // TODO find the correct size of the packet and buffer
         char packet[150];
         char buffer[15];
         strcat(packet, "telemetry,");
@@ -55,7 +55,7 @@ bool Telemetry::send2uart()
         sprintf(buffer, "%i,", data.imu.eulerAngles.pitch);
 
         //TODO add checksum? https://github.com/bdureau/RocketFlightLogger/blob/140cf36829486526b69e4608e735478b8145a25b/config.cpp#L377
-        strcat(packet, ";\n");
+        strcat(packet, ",\n");
         Serial.print("$");
         Serial.print(packet);
 
