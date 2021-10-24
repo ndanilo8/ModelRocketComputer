@@ -12,62 +12,16 @@ Chrono timer;
 
 bool Telemetry::begin()
 {
-    // TODO start up radio
-
     Serial1.begin(RADIO_BAUD_RATE);
     radio.begin(Serial1);
-
     return true;
 }
 
-/*
-Send Telemetry to SD Card
 
- */
-//TODO test
+//TODO test the downlink
 // https://stackoverflow.com/questions/59101351/char-buffer-new-vs-char-buffer-in-c
 bool Telemetry::send2uart()
 {
-    // if (timer.hasPassed(DATA_SAMPLE_RATE))
-    // {
-    //     // TODO find the correct size of the packet and buffer
-    //     char packet[150];
-    //     char buffer[15];
-    //     strcat(packet, "telemetry,");
-    //     sprintf(buffer, "%i,", data.state);
-    //     strcat(packet, buffer);
-    //     sprintf(buffer, "%i,", data.loopTime);
-    //     strcat(packet, buffer);
-    //     sprintf(buffer, "%i,", data.altimeter.altitude);
-    //     strcat(packet, buffer);
-    //     sprintf(buffer, "%i,", data.altimeter.temperature);
-    //     strcat(packet, buffer);
-    //     sprintf(buffer, "%i,", data.altimeter.verticalVelocity);
-    //     strcat(packet, buffer);
-    //     sprintf(buffer, "%i,", data.imu.accel.x);
-    //     strcat(packet, buffer);
-    //     sprintf(buffer, "%i,", data.imu.accel.y);
-    //     strcat(packet, buffer);
-    //     sprintf(buffer, "%i,", data.imu.accel.z);
-    //     strcat(packet, buffer);
-    //     sprintf(buffer, "%i,", data.imu.eulerAngles.yaw);
-    //     strcat(packet, buffer);
-    //     sprintf(buffer, "%i,", data.imu.eulerAngles.pitch);
-    //     strcat(packet, buffer);
-    //     sprintf(buffer, "%i,", data.imu.eulerAngles.roll);
-    //     strcat(packet, buffer);
-    //     sprintf(buffer, "%i,", data.batteryVoltage);
-    //     strcat(packet, buffer);
-    //     sprintf(buffer, "%i,", data.pyro1Continuity);
-    //     strcat(packet, buffer);
-    //     sprintf(buffer, "%i,", data.imu.eulerAngles.pitch);
-    //     //TODO add checksum? https://github.com/bdureau/RocketFlightLogger/blob/140cf36829486526b69e4608e735478b8145a25b/config.cpp#L377
-    //     strcat(packet, ",\n");
-    //     Serial.print("$");
-    //     Serial.print(packet);
-    //     return true;
-    // }
-
     if (timer.hasPassed(TELEMETRY_SAMPLE_RATE))
     {
         // TODO find the correct size of the packet and buffer
@@ -161,12 +115,15 @@ bool Telemetry::send2uart()
             telemetryState = 0;
             break;
         }
+        //Add checksum? https://github.com/bdureau/RocketFlightLogger/blob/140cf36829486526b69e4608e735478b8145a25b/config.cpp#L377
         strcat(packet, ","); // Seperate the data by ","
         strcat(packet, buffer);
 #if is_DEBUG
         Serial1.print(packet); //send over the radio
 #endif
         radio.sendDatum(packet); // send data via radio to GCS (ground control Station)
+
+        
         timer.restart();
     }
 }

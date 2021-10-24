@@ -14,6 +14,7 @@
 
 #include <header.h>
 
+Chrono liftoffTimer; // time taken to detect positive liftoff
 unsigned long prevLoopTime;
 unsigned long currentLoopTime;
 
@@ -66,19 +67,18 @@ void loop()
   switch (data.state)
   {
   case IDLE:
+    // add a radio receiver function to change state or a physical button when pressed or not pressed it changes to liftoff state (remove before flight kinda thing)
+    // right now it will just forward to liftoff mode
     goToState(LIFTOFF);
-
     break;
 
   case LIFTOFF:
 
-    // TODO add a timer so it looks for a constant accel over some short time (prevent false starts due to spikes induced by moving the rocket)
-    if (data.imu.accel.x >= LAUNCH_ACCEL_THRESHOLD || data.altimeter.altitude >= LIFTOFF_ALTITUDE)
+    if (data.imu.accel.x >= LAUNCH_ACCEL_THRESHOLD || data.altimeter.altitude >= LIFTOFF_ALTITUDE_THRESHOLD)
     {
-      // if (micros() - currentLoopTime >=  ) // the timer...
-      goToState(POWERED_ASCENT);
+      if (liftoffTimer.hasPassed(LAUNCH_ACCEL_TIME_THRESHOLD)) //here we add a fail safe timer so liftoff is only detect if a accel threshold is exceded for some particular time
+        goToState(POWERED_ASCENT);
     }
-
     break;
 
   case POWERED_ASCENT:
@@ -104,21 +104,23 @@ void loop()
     break;
 
   case PARACHUTE_DESCENT:
-    if (data.altimeter.altitude <= LIFTOFF_ALTITUDE)
+    if (data.altimeter.altitude <= LIFTOFF_ALTITUDE_THRESHOLD) // this might not work if we get stuck on a tree or above at a house top.. then the threshold will never be reached and the system will be kept in this state: to mitigate this we could check the rocket attitute to see if its stationary or not
       goToState(LANDED);
 
     break;
 
   case LANDED:
-    // BEEP and blink LED
+    // BEEP and blink LED: make it easier to find!
 
     break;
 
   case ABORT:
-    //Fire
+    //not much we could do besides firing the parachute..
+    data.is_abort = true; // system level flag | we could also just check the system state... lol
     break;
 
   case TEST:
+  //debug mode 
 #if is_DEBUG
     telemetry.send2uart();
     // Serial.println("Yaw: ");

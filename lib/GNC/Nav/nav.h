@@ -17,7 +17,7 @@ public:
     Nav(){};
     bool begin();
     bool update(); // TODO write dead reckoning 
-    bool calibrate(); // TODO write 
+    bool calibrate(); // TODO write calibration code
 
 private:
     unsigned long microsPerReading, microsPrevious;

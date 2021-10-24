@@ -31,8 +31,9 @@
 /*************************************
               ALTIMETER
  *************************************/
-#define LIFTOFF_ALTITUDE 2.0f             // m
+#define LIFTOFF_ALTITUDE_THRESHOLD 2.0f             // m
 #define LAUNCH_ACCEL_THRESHOLD 2.0f    // m/s^2
+#define LAUNCH_ACCEL_TIME_THRESHOLD 30 // ms
 #define ACCEL_UNPOWERED_THRESHOLD 1.5f // m/s^2
 #define ACCEL_TIME_SENSITIVITY 2500 // us
 

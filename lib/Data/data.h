@@ -72,6 +72,7 @@ struct Telemetry_t
     // System: Battery, pyro continuity and State and loop time
     float batteryVoltage;
     float pyro1Continuity;
+    bool is_abort = false;
 };
 
 extern Telemetry_t data;

@@ -23,26 +23,23 @@ bool Pyro::fire(int channel)
         //Fire pyro charge
         fireTime = millis();
         hasFired = true;
-        digitalWrite(PIN_PYRO_1_EN, HIGH);
-        // analogWrite(PIN_PYRO_1_EN, 255);
+        analogWrite(PIN_PYRO_1_EN, 255);
     }
 
     if (hasFired == true && millis() - fireTime >= FIRE_ON_TIME)
     {
         //Stop pyro charge
-        digitalWrite(PIN_PYRO_1_EN, LOW);
-        // analogWrite(PIN_PYRO_1_EN, 0);
+        analogWrite(PIN_PYRO_1_EN, 0);
         hasFired = false;
     }
 }
 
-// TODO test needed to see if digitalRead works instead of using the analogRead
+// TODO test needed
 bool Pyro::checkContinuity(int channel)
 {
-
     if (continuityTimer.hasPassed(CONTINUITY_CHECK_TIME_RATE)) // Check continuity time
     {
-        if (digitalRead(channel))
+        if (analogRead(channel) < 200) 
         {
             data.pyro1Continuity = 1; // continuity
 #if is_DEBUG
