@@ -4,7 +4,7 @@ I will be adding code, schematics, photos and will fix some code that was commen
 
 This is the newest code, thus is still being written. NOT FLIGHT READY (yet ;) )
 
-Coded on Visual Studio Code\n
-MCU: Seeeduino XIAO,
-IMU: MPU6050,
-Barometric Sensor: BMP388
+Coded on Visual Studio Code
+ - MCU: Seeeduino XIAO,
+ - IMU: MPU6050,
+ - Barometric Sensor: BMP388
