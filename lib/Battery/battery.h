@@ -10,13 +10,13 @@
 
 // read voltage and update data struct battVoltate variable
 // this varies a lot from each voltage divider resistance values and their respective tolerances ( <5%)
-// Max Vin: 12V
+// Max Vin: 12v
 // R1: 270kOhm
 // R2: 100kOhm
-// Max Vout: 3.243 when Vin is 12v
+// Max Vout: 3.243v when Vin is 12v
 // Input impedance: 270kOhm/100kOhm = 2.7kOhm
-// Voltage divider factor: 12/3.243 = 3.7
-// 10bit ADC resolution: 1024s
+// Voltage divider factor: 12v/3.243v = 3.7
+// 10bit ADC resolution: 1024
 
 class BMS //battery management system
 {
