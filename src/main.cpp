@@ -79,7 +79,7 @@ void loop()
 
     if (data.imu.accel.x >= LAUNCH_ACCEL_THRESHOLD || data.altimeter.altitude >= LIFTOFF_ALTITUDE_THRESHOLD)
     {
-      if (liftoffTimer.hasPassed(LAUNCH_ACCEL_TIME_THRESHOLD)) //here we add a fail safe timer so liftoff is only detect if a accel threshold is exceded for some particular time
+      if (liftoffTimer.hasPassed(LAUNCH_ACCEL_TIME_THRESHOLD)) //noise safe timer so liftoff is only detect if a accel threshold is exceded for some particular time
         goToState(POWERED_ASCENT);
     }
     break;
