@@ -11,12 +11,12 @@
 #define I2C_SDA_PIN 4
 #define I2C_SCL_PIN 5
 
-#define BUZZER_PIN
-#define LED_PIN
+#define PIN_BUZZER
+#define PIN_LED
 
 #define PIN_PYRO_1_EN 2
 #define PIN_PYRO_1_CONT 3
 
-#define BATT_VOLTAGE_PIN 1
+#define PIN_BATT_VOLTAGE 1
 
 #endif /* GLOBAL_H */

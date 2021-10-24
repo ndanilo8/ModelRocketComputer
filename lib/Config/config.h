@@ -49,5 +49,10 @@
 #define CONTINUITY_CHECK_TIME_RATE 1000 // ms Time taken with each check
 #define FIRE_ON_TIME 250 // ms
 
+/*************************************
+            BMS (BATTERY MANAGEMENT SYSTEM)
+ *************************************/
+#define NUM_BMS_SAMPLES 10 // read voltate samples
+
 
 #endif /* CONFIG_H */

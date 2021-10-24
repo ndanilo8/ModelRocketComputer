@@ -32,6 +32,7 @@ void setup()
   goToState(TEST);
 #endif
   Wire.begin();
+  SPI.begin();
 
   bool startupError = false;
 
@@ -45,6 +46,9 @@ void setup()
     startupError = true;
 
   if (!altimeter.begin())
+    startupError = true;
+
+  if (!battery.begin())
     startupError = true;
 
   while (startupError == true)
@@ -63,6 +67,7 @@ void loop()
 
   nav.update();
   altimeter.update();
+  battery.readVoltate();
 
   switch (data.state)
   {
@@ -120,7 +125,7 @@ void loop()
     break;
 
   case TEST:
-  //debug mode 
+    //debug mode
 #if is_DEBUG
     telemetry.send2uart();
     // Serial.println("Yaw: ");
