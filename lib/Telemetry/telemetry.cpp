@@ -119,11 +119,9 @@ bool Telemetry::send2uart()
         strcat(packet, ","); // Seperate the data by ","
         strcat(packet, buffer);
 #if is_DEBUG
-        Serial1.print(packet); //send over the radio
+        Serial.print(packet); //send over the usb serial
 #endif
         radio.sendDatum(packet); // send data via radio to GCS (ground control Station)
-
-        
         timer.restart();
     }
 }
