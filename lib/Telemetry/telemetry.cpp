@@ -12,7 +12,11 @@ Chrono timer;
 
 bool Telemetry::begin()
 {
-    // TODO start up SDcard
+    // TODO start up radio
+
+    Serial1.begin(RADIO_BAUD_RATE);
+    radio.begin(Serial1);
+
     return true;
 }
 
@@ -159,7 +163,10 @@ bool Telemetry::send2uart()
         }
         strcat(packet, ","); // Seperate the data by ","
         strcat(packet, buffer);
-        // sendTelemetry(packet);
+#if is_DEBUG
+        Serial1.print(packet); //send over the radio
+#endif
+        radio.sendDatum(packet); // send data via radio to GCS (ground control Station)
         timer.restart();
     }
 }

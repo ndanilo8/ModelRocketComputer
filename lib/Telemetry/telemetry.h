@@ -5,6 +5,7 @@
 #include <config.h>
 #include <global.h>
 #include <Chrono.h>
+#include <SerialTransfer.h>
 
 // this library has all the code to manage the telemetry logging and radio downlink
 class Telemetry
@@ -14,10 +15,9 @@ public:
 
     bool begin();
     bool send2uart();
-    // bool sendData2Radio();
-    // bool logData2SsdCard();
 
-    private:
+private:
+    SerialTransfer radio;
     int telemetryState = 0; //state machine for the telemetry
 };
 #endif /* TELEMETRY_H */
