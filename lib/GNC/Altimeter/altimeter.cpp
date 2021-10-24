@@ -100,7 +100,7 @@ float Altimeter::update()
 
 bool Altimeter::detectApogge()
 {
-  if ((current_altitude < max_altitude)) // TODO maybe add a 10 measures safe mode? (if curr_altitude<max_altidue for 10 loops we got to apogge)
+  if ((current_altitude < max_altitude))
   {
 #if is_DEBUG
     Serial.println("---- APOGGE! ---- Max altitude: ");
