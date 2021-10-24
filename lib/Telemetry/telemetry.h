@@ -16,5 +16,8 @@ public:
     bool send2uart();
     // bool sendData2Radio();
     // bool logData2SsdCard();
+
+    private:
+    int telemetryState = 0; //state machine for the telemetry
 };
 #endif /* TELEMETRY_H */
