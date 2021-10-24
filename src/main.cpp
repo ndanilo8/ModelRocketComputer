@@ -20,8 +20,6 @@ unsigned long currentLoopTime;
 
 void setup()
 {
-  // put your setup code here, to run once:
-
   // initialize debuging
 #if is_DEBUG
   Serial.begin(SERIAL_BAUD);
