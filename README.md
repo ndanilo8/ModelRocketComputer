@@ -3,6 +3,7 @@ Just an Arduino that records rocket's telemetry, detects apogee for parachute re
 
 
 **This is an updated version.**
+
 **Feel free to check Archive Branch for the old version**
 
 
