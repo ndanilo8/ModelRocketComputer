@@ -1,9 +1,13 @@
 # Model Rocket Computer
 Just an Arduino that records rocket's telemetry, detects apogee for parachute release, keep track of battery Voltage and has a Radio downlink 
+
+
 **This is an updated version.**
+**Feel free to check Archive Branch for the old version**
 
 
-Coded on Visual Studio Code
+
+### Coded on Visual Studio Code
  - MCU: Seeeduino XIAO,
  - IMU: MPU6050,
  - Barometric Sensor: BMP388
