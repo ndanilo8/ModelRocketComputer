@@ -6,6 +6,7 @@ Coded on Visual Studio Code
  - IMU: MPU6050,
  - Barometric Sensor: BMP388
 
+### Check config.h and global.h for settings and pin selection
 
 ## Libraries used
 - [Adafruit BMP3XX Library](https://github.com/adafruit/Adafruit_BMP3XX/)
@@ -16,4 +17,7 @@ Coded on Visual Studio Code
 - [SdFat](https://github.com/greiman/SdFat)
 - [SerialTransfer](https://github.com/PowerBroker2/SerialTransfer)
 
-### Check config.h and global.h for settings and pin selection
+If you like my work, please consider:
+<p align='right'>
+<a href="https://www.buymeacoffee.com/daniloonspace" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+</p>
