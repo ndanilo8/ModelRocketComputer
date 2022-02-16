@@ -17,8 +17,7 @@ Coded on Visual Studio Code
 - [SdFat](https://github.com/greiman/SdFat)
 - [SerialTransfer](https://github.com/PowerBroker2/SerialTransfer)
 
-
-<p align='right'>
 If you like my work, please consider:
+<p align='center'>
 <a href="https://www.buymeacoffee.com/daniloonspace" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 </p>
