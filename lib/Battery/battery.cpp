@@ -38,7 +38,7 @@ bool EPS::readVoltate()
 
         samples = analogRead(PIN_BATT_VOLTAGE);
         // Determine Battery Voltage
-        data.batteryVoltage = ((samples * Vref) / ADC_resolution) * (R2 / (R1 + R2));
+        data.batteryVoltage = ((samples * Vref) / ADC_resolution) * ((R1 + R2) /R2 );
         batteryVoltageTimer.restart();
 
         if (data.batteryVoltage < MIN_BATTERY_VOLTAGE)
